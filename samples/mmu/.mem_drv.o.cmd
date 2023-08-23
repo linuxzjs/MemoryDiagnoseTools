@@ -1,0 +1,1 @@
+cmd_/home/jinsheng/Work/Demo/test1/mem_drv.o := ld -m elf_x86_64  -z max-page-size=0x200000   -r -o /home/jinsheng/Work/Demo/test1/mem_drv.o /home/jinsheng/Work/Demo/test1/mem_kernel.o ; scripts/mod/modpost /home/jinsheng/Work/Demo/test1/mem_drv.o
