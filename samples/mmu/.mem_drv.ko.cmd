@@ -1,1 +1,0 @@
-cmd_/home/jinsheng/Work/Demo/test1/mem_drv.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /home/jinsheng/Work/Demo/test1/mem_drv.ko /home/jinsheng/Work/Demo/test1/mem_drv.o /home/jinsheng/Work/Demo/test1/mem_drv.mod.o ;  true
