@@ -6,14 +6,13 @@
 #include <unistd.h>
 #include <string.h>
 
-#define MEM_MMAP_SIZE 100*1024*1024
-
 int main(int argc, char **argv)
 {
     char *addr = NULL;
     int i = 0;
     int fd = 0;
     struct stat sb;
+	char t;
 
     fd = open("hello.txt", O_RDWR);
     if (fd == -1){
@@ -27,12 +26,6 @@ int main(int argc, char **argv)
         return -1;
     }
     
-    if (sb.st_size > MEM_MMAP_SIZE){
-        printf("get file size invalte\n");
-        close(fd);
-        return -1;
-    }
-
 	printf("file size = %ld\n", sb.st_size);
 
     addr = mmap(NULL, sb.st_size, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
@@ -48,10 +41,10 @@ int main(int argc, char **argv)
     printf("\n");
 
     printf("read !!!!!!\n");
-    for (i = 0; i < (sb.st_size/(1024*1024)); i++){
-        printf("0x%x ", addr[i]);
+    for (i = 0; i < (sb.st_size); i++){
+		t = addr[i];
     }
-    printf("\n\n");
+    printf("\n");
 
     printf("after read !!!!!!\n");
     system("cat /proc/meminfo | grep file");
