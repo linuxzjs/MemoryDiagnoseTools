@@ -36,8 +36,6 @@ int main(int argc, char **argv)
         return -1;
     }
 
-	close(fd);
-
     printf("mmap file sucess\n");
     system("cat /proc/meminfo | grep Cached");
     system("cat /proc/meminfo | grep file");
@@ -57,6 +55,7 @@ int main(int argc, char **argv)
     printf("\n");
 
     munmap(addr, sb.st_size);
+	close(fd);
 
     printf("munmap file & close fd !!!!!!\n");
     system("cat /proc/meminfo | grep Cached");
